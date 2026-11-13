@@ -1,0 +1,319 @@
+{
+  "schemaVersion": "1.1.0",
+  "screenId": "home",
+  "theme": "default",
+  "meta": { "title": "KFC Perú - Inicio", "experiment": { "id": "home_view", "variant": "guest" } },
+  "actions": { "onMount": [{ "type": "TRACK_EVENT", "payload": { "name": "screen_view" } }] },
+  "header": {
+    "id": "guest_header",
+    "type": "header_default",
+    "version": 1,
+    "props": {
+      "logo": { "imageUrl": "https://www.kfc.com.pe/images/kfc/logo.svg", "alt": "KFC" },
+      "variant": "brand",
+      "buttons": [
+        {
+          "icon": "user",
+          "label": "Mi cuenta",
+          "actions": { "onPress": [{ "type": "TRACK_EVENT", "payload": { "name": "header_click", "params": { "button": "user" } } }] }
+        },
+        {
+          "icon": "cart",
+          "label": "Carrito",
+          "actions": { "onPress": [{ "type": "TRACK_EVENT", "payload": { "name": "header_click", "params": { "button": "cart" } } }, { "type": "SHOW_MESSAGE", "payload": { "title": "Tu carrito está vacío", "message": "Agrega un producto del menú para empezar tu pedido." } }] }
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "guest_hero",
+      "type": "hero_carousel",
+      "version": 1,
+      "props": {
+        "items": [
+          {
+            "imageUrl": "https://delosi-pidelo.s3.amazonaws.com/kfc/banners/mobile/dipeo.webp",
+            "alt": "Mega Dipeo - Combo desde S/24.90",
+            "actions": { "onPress": [{ "type": "TRACK_EVENT", "payload": { "name": "hero_click", "params": { "position": 1 } } }] }
+          },
+          {
+            "imageUrl": "https://delosi-pidelo.s3.amazonaws.com/kfc/banners/MOBILE_CYB_20260420.png",
+            "alt": "Big Box - La caja que lo tiene todo",
+            "actions": { "onPress": [{ "type": "TRACK_EVENT", "payload": { "name": "hero_click", "params": { "position": 2 } } }] }
+          },
+          {
+            "imageUrl": "https://delosi-pidelo.s3.amazonaws.com/kfc/banners/BANNER_LDHW_2_MOBILE.jpg",
+            "alt": "Nuevos Krushers - Refréscate",
+            "actions": { "onPress": [{ "type": "TRACK_EVENT", "payload": { "name": "hero_click", "params": { "position": 3 } } }] }
+          }
+        ],
+        "layout": "full",
+        "autoplay": true
+      }
+    },
+    {
+      "id": "guest_most_chosen",
+      "type": "product_list",
+      "version": 1,
+      "actions": { "onView": [{ "type": "TRACK_EVENT", "payload": { "name": "section_view", "params": { "list": "guest_most_chosen" } } }] },
+      "props": {
+        "title": "Los combos más elegidos 🔥",
+        "layout": "carousel",
+        "items": [
+          {
+            "id": "prod_001",
+            "name": "Mega Familiar 15 Piezas",
+            "description": "15 piezas de pollo + 3 papas grandes + ensalada + 1.5L bebida",
+            "priceLabel": "S/ 89.90",
+            "originalPriceLabel": "S/ 109.90",
+            "badge": "-30%",
+            "imageUrl": "https://delosi-pidelo.s3.amazonaws.com/kfc/products/mega-promo-8-piezas-202602160411187422.jpg",
+            "actions": {
+              "onPress": [
+                { "type": "TRACK_EVENT", "payload": { "name": "select_item", "params": { "item_id": "prod_001" } } },
+                { "type": "NAVIGATE", "payload": { "route": "product_detail", "params": { "id": "prod_001" } } }
+              ]
+            }
+          },
+          {
+            "id": "prod_002",
+            "name": "Big Box Original",
+            "description": "2 piezas de pollo + papas + ensalada + bebida + postre",
+            "priceLabel": "S/ 24.90",
+            "originalPriceLabel": "S/ 27.90",
+            "badge": "-15%",
+            "imageUrl": "https://delosi-pidelo.s3.amazonaws.com/kfc/products/mega-promo-10-piezas-202602160411385589.jpg",
+            "actions": {
+              "onPress": [
+                { "type": "TRACK_EVENT", "payload": { "name": "select_item", "params": { "item_id": "prod_002" } } },
+                { "type": "NAVIGATE", "payload": { "route": "product_detail", "params": { "id": "prod_002" } } }
+              ]
+            }
+          },
+          {
+            "id": "prod_003",
+            "name": "Chicken Strips x6",
+            "description": "6 strips crocantes + salsa BBQ o ranch",
+            "priceLabel": "S/ 29.90",
+            "originalPriceLabel": "S/ 37.90",
+            "badge": "-20%",
+            "imageUrl": "https://delosi-pidelo.s3.amazonaws.com/kfc/products/mega-promo-10-piezas-202602160411385589.jpg",
+            "actions": {
+              "onPress": [
+                { "type": "TRACK_EVENT", "payload": { "name": "select_item", "params": { "item_id": "prod_003" } } },
+                { "type": "NAVIGATE", "payload": { "route": "product_detail", "params": { "id": "prod_003" } } }
+              ]
+            }
+          },
+          {
+            "id": "prod_004",
+            "name": "Dúo Twister XL con papas",
+            "description": "2 Twister XL + 2 papas medianas",
+            "priceLabel": "S/ 32.90",
+            "originalPriceLabel": "S/ 38.90",
+            "badge": "-15%",
+            "imageUrl": "https://delosi-pidelo.s3.amazonaws.com/kfc/products/duo-twister-xl-con-papas-202602160411547690.jpg",
+            "actions": {
+              "onPress": [
+                { "type": "TRACK_EVENT", "payload": { "name": "select_item", "params": { "item_id": "prod_004" } } },
+                { "type": "NAVIGATE", "payload": { "route": "product_detail", "params": { "id": "prod_004" } } }
+              ]
+            }
+          }
+        ],
+        "cta": {
+          "label": "Ver todo",
+          "actions": {
+            "onPress": [{ "type": "TRACK_EVENT", "payload": { "name": "see_all_click", "params": { "list": "guest_most_chosen" } } }]
+          }
+        }
+      }
+    },
+    {
+      "id": "guest_top",
+      "type": "product_list",
+      "version": 1,
+      "actions": { "onView": [{ "type": "TRACK_EVENT", "payload": { "name": "section_view", "params": { "list": "guest_top" } } }] },
+      "props": {
+        "title": "Lo más top del momento 🍟",
+        "layout": "carousel",
+        "items": [
+          {
+            "id": "prod_101",
+            "name": "Para Compartir",
+            "description": "8 piezas de pollo + 2 papas familiares + 1.5L bebida",
+            "priceLabel": "S/ 64.90",
+            "badge": "#1",
+            "imageUrl": "https://delosi-pidelo.s3.amazonaws.com/kfc/sections/para_compartir_delivery.jpg",
+            "actions": {
+              "onPress": [
+                { "type": "TRACK_EVENT", "payload": { "name": "select_item", "params": { "item_id": "prod_101" } } },
+                { "type": "NAVIGATE", "payload": { "route": "product_detail", "params": { "id": "prod_101" } } }
+              ]
+            }
+          },
+          {
+            "id": "prod_102",
+            "name": "Para 2",
+            "description": "4 piezas de pollo + 2 papas + 2 bebidas",
+            "priceLabel": "S/ 39.90",
+            "badge": "#2",
+            "imageUrl": "https://delosi-pidelo.s3.amazonaws.com/kfc/sections/para_2_delivery.jpg",
+            "actions": {
+              "onPress": [
+                { "type": "TRACK_EVENT", "payload": { "name": "select_item", "params": { "item_id": "prod_102" } } },
+                { "type": "NAVIGATE", "payload": { "route": "product_detail", "params": { "id": "prod_102" } } }
+              ]
+            }
+          },
+          {
+            "id": "prod_103",
+            "name": "Para ti",
+            "description": "2 piezas de pollo + papas + bebida",
+            "priceLabel": "S/ 18.90",
+            "badge": "#3",
+            "imageUrl": "https://delosi-pidelo.s3.amazonaws.com/kfc/sections/para_ti_delivery.jpg",
+            "actions": {
+              "onPress": [
+                { "type": "TRACK_EVENT", "payload": { "name": "select_item", "params": { "item_id": "prod_103" } } },
+                { "type": "NAVIGATE", "payload": { "route": "product_detail", "params": { "id": "prod_103" } } }
+              ]
+            }
+          },
+          {
+            "id": "prod_104",
+            "name": "Twister XL",
+            "description": "Twister XL + papas + bebida",
+            "priceLabel": "S/ 21.90",
+            "badge": "#4",
+            "imageUrl": "https://delosi-pidelo.s3.amazonaws.com/kfc/sections/twister_delivery.jpg",
+            "actions": {
+              "onPress": [
+                { "type": "TRACK_EVENT", "payload": { "name": "select_item", "params": { "item_id": "prod_104" } } },
+                { "type": "NAVIGATE", "payload": { "route": "product_detail", "params": { "id": "prod_104" } } }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "guest_weekly_promos",
+      "type": "product_list",
+      "version": 1,
+      "actions": {
+        "onView": [{ "type": "TRACK_EVENT", "payload": { "name": "section_view", "params": { "list": "guest_weekly_promos" } } }]
+      },
+      "props": {
+        "title": "Las promociones de la semana 📅",
+        "layout": "carousel",
+        "items": [
+          {
+            "id": "promo_mon",
+            "name": "Lunes: Twister XL 2x1",
+            "description": "Todo el día, en delivery y en tienda",
+            "priceLabel": "S/ 21.90",
+            "badge": "LUN",
+            "imageUrl": "https://delosi-pidelo.s3.amazonaws.com/kfc/sections/twister_delivery.jpg",
+            "actions": {
+              "onPress": [
+                { "type": "TRACK_EVENT", "payload": { "name": "select_item", "params": { "item_id": "promo_mon" } } },
+                { "type": "NAVIGATE", "payload": { "route": "product_detail", "params": { "id": "promo_mon" } } }
+              ]
+            }
+          },
+          {
+            "id": "promo_tue",
+            "name": "Martes de Chicken Strips",
+            "description": "12 strips al precio de 8",
+            "priceLabel": "S/ 29.90",
+            "badge": "MAR",
+            "imageUrl": "https://delosi-pidelo.s3.amazonaws.com/kfc/products/mega-promo-10-piezas-202602160411385589.jpg",
+            "actions": {
+              "onPress": [
+                { "type": "TRACK_EVENT", "payload": { "name": "select_item", "params": { "item_id": "promo_tue" } } },
+                { "type": "NAVIGATE", "payload": { "route": "product_detail", "params": { "id": "promo_tue" } } }
+              ]
+            }
+          },
+          {
+            "id": "promo_wed",
+            "name": "Miércoles Para 2",
+            "description": "Postre gratis para los dos",
+            "priceLabel": "S/ 39.90",
+            "badge": "MIÉ",
+            "imageUrl": "https://delosi-pidelo.s3.amazonaws.com/kfc/sections/para_2_delivery.jpg",
+            "actions": {
+              "onPress": [
+                { "type": "TRACK_EVENT", "payload": { "name": "select_item", "params": { "item_id": "promo_wed" } } },
+                { "type": "NAVIGATE", "payload": { "route": "product_detail", "params": { "id": "promo_wed" } } }
+              ]
+            }
+          },
+          {
+            "id": "promo_thu",
+            "name": "Jueves de Mega",
+            "description": "Mega 8 Piezas con papas familiares",
+            "priceLabel": "S/ 59.90",
+            "badge": "JUE",
+            "imageUrl": "https://delosi-pidelo.s3.amazonaws.com/kfc/products/mega-promo-8-piezas-202602160411187422.jpg",
+            "actions": {
+              "onPress": [
+                { "type": "TRACK_EVENT", "payload": { "name": "select_item", "params": { "item_id": "promo_thu" } } },
+                { "type": "NAVIGATE", "payload": { "route": "product_detail", "params": { "id": "promo_thu" } } }
+              ]
+            }
+          },
+          {
+            "id": "promo_wkd",
+            "name": "Finde para compartir",
+            "description": "Bebida 1.5L gratis con cualquier combo para compartir",
+            "priceLabel": "S/ 64.90",
+            "badge": "VIE-DOM",
+            "imageUrl": "https://delosi-pidelo.s3.amazonaws.com/kfc/sections/para_compartir_delivery.jpg",
+            "actions": {
+              "onPress": [
+                { "type": "TRACK_EVENT", "payload": { "name": "select_item", "params": { "item_id": "promo_wkd" } } },
+                { "type": "NAVIGATE", "payload": { "route": "product_detail", "params": { "id": "promo_wkd" } } }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "guest_offer",
+      "type": "promo_banner",
+      "version": 1,
+      "props": {
+        "title": "Oferta de la semana",
+        "description": "Big Box Original a S/ 21.90. Crea tu cuenta y desbloquea ofertas Solo por hoy.",
+        "imageUrl": "https://delosi-pidelo.s3.amazonaws.com/kfc/products/mega-promo-10-piezas-202602160411385589.jpg",
+        "badge": "OFERTA",
+        "variant": "brand",
+        "cta": {
+          "label": "Ver oferta",
+          "actions": {
+            "onPress": [
+              { "type": "TRACK_EVENT", "payload": { "name": "promo_cta_click", "params": { "promo_id": "guest_offer" } } },
+              { "type": "NAVIGATE", "payload": { "route": "product_detail", "params": { "id": "prod_002" } } }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "bottomBar": {
+    "id": "bottom_bar_register",
+    "type": "bottom_bar",
+    "version": 1,
+    "props": {
+      "title": "Crea tu cuenta y llévate 10% en tu primer pedido",
+      "cta": { "label": "Registrarme", "actions": { "onPress": [{ "type": "TRACK_EVENT", "payload": { "name": "signup_cta_click" } }] } },
+      "variant": "brand",
+      "icon": "gift",
+      "isDismissible": true
+    }
+  }
+}

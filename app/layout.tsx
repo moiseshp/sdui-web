@@ -23,7 +23,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body className="bg-zinc-200 font-sans text-ink">
-        {/* A phone-width column: the screens are designed mobile-first. */}
         <main className="mx-auto min-h-dvh max-w-md bg-white shadow-xl">{children}</main>
       </body>
     </html>

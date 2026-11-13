@@ -35,7 +35,7 @@ function ScreenBody({ screen, registry }: ScreenRendererProps) {
   useMountTrigger(screen.actions?.onMount, screen.screenId);
 
   return (
-    // The theme is exposed once (see theme.css); sections never read it.
+    // The theme is exposed once (the app's theme.css); sections never read it.
     <div data-theme={screen.theme} data-screen-id={screen.screenId} className="flex min-h-dvh flex-col">
       {/* Slots pin themselves with `sticky`, so they stay as wide as the screen column. */}
       {screen.header != null && (

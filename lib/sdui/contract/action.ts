@@ -38,6 +38,11 @@ export const coreActionSchemas = {
     // Only http(s): blocks `javascript:` and friends coming from a payload.
     url: z.url({ protocol: /^https?$/ }),
   }),
+  /** Plain text shown by the platform's own dialog. The payload never says which widget. */
+  SHOW_MESSAGE: z.object({
+    title: z.string().min(1).optional(),
+    message: z.string().min(1),
+  }),
 };
 
 export type CoreActionType = keyof typeof coreActionSchemas;

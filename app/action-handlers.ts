@@ -47,6 +47,12 @@ export function useAppActionHandlers(): ActionHandlers {
       OPEN_URL: ({ url }) => {
         window.open(url, '_blank', 'noopener,noreferrer');
       },
+
+      // The payload brings the text; the platform decides how to show it.
+      // A native alert keeps the demo small: replace it with your own dialog.
+      SHOW_MESSAGE: ({ title, message }) => {
+        window.alert(title ? `${title}\n\n${message}` : message);
+      },
     }),
     [router],
   );

@@ -1,24 +1,22 @@
-/**
- * Home, in two halves:
- *   server  gets the screen and validates it  (get-screen-home.ts)
- *   client  renders it with the SDUI library  (home-screen.tsx)
- * If getting it fails, error.tsx shows the message and a retry button.
- *
- * Asking on the server is a web choice (Next.js): the browser receives the
- * screen with the first HTML, without a loading state. A Flutter app has no
- * server of its own, so it asks from the device and shows its own loading and
- * error states (e.g. a repository + Cubit). The screen, the contract and the
- * library are the same; only WHERE it is requested changes.
- */
+'use client';
 
-import { connection } from 'next/server';
-import { getScreenHome } from './get-screen-home';
-import { HomeScreen } from './home-screen';
+import { SduiProvider } from '@/lib/sdui/actions/sdui-provider';
+import { ScreenRenderer } from '@/lib/sdui/screen/screen-renderer';
+import { useFetch } from '@/lib/use-fetch';
+import { homeRegistry } from '@/sections/home-registry';
+import { useAppActionHandlers } from './action-handlers';
+import { getScreen } from './get-screen';
 
-export default async function HomePage() {
-  // Render on every request, never at build time: a change in the backend
-  // must show up on the next reload.
-  await connection();
-  const screen = await getScreenHome();
-  return <HomeScreen screen={screen} />;
+export default function HomePage() {
+  const handlers = useAppActionHandlers();
+  const { data: screen, hasError } = useFetch(() => getScreen('home'));
+
+  if (hasError) return <p className="p-6">No pudimos cargar el inicio. Inténtalo de nuevo en unos segundos.</p>;
+  if (!screen) return <p className="p-6">Cargando…</p>;
+
+  return (
+    <SduiProvider handlers={handlers}>
+      <ScreenRenderer screen={screen} registry={homeRegistry} />
+    </SduiProvider>
+  );
 }
