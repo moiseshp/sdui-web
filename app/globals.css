@@ -1,0 +1,11 @@
+@import 'tailwindcss';
+@import '../sections/shared/theme.css';
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 3px solid #2f6fed;
+  outline-offset: 2px;
+}

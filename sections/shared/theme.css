@@ -1,0 +1,48 @@
+/*
+ * Translates the contract's semantic intent into this platform's tokens.
+ *
+ * `@theme` declares the tokens Tailwind turns into utilities (bg-brand,
+ * text-on-brand, ...). `screen.theme` arrives as `data-theme` on the screen
+ * container and only swaps the values; sections never know which theme is on.
+ * (Flutter: ThemeData / ThemeExtension.)
+ */
+
+@theme {
+  --color-brand: #d6001c;
+  --color-on-brand: #ffffff;
+  --color-highlight: #ffc72c;
+  --color-on-highlight: #1d1b1a;
+  --color-ink: #1d1b1a;
+  --color-muted: #6b6460;
+  --color-surface: #f3f2f0;
+
+  --font-sans: 'Archivo', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+[data-theme='loyalty'] {
+  --color-brand: #1d1b1a;
+  --color-on-brand: #ffffff;
+  --color-highlight: #c9a227;
+  --color-on-highlight: #1d1b1a;
+}
+
+[data-theme='christmas'] {
+  --color-brand: #0e6b3a;
+  --color-on-brand: #ffffff;
+  --color-highlight: #d6001c;
+  --color-on-highlight: #ffffff;
+}
+
+[data-theme='valentine'] {
+  --color-brand: #c2185b;
+  --color-on-brand: #ffffff;
+  --color-highlight: #ffd6e4;
+  --color-on-highlight: #7a0f3a;
+}
+
+[data-theme='rush'] {
+  --color-brand: #c2410c;
+  --color-on-brand: #ffffff;
+  --color-highlight: #ffe600;
+  --color-on-highlight: #1d1b1a;
+}
